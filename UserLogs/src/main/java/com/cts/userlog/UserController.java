@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+
 import com.cts.userlog.exceptions.UserNotFoundException;
 import com.cts.userlog.services.UserServices;
 import com.cts.userlog.user.User;
@@ -36,6 +37,9 @@ public class UserController {
 			throw new UserNotFoundException("id-"+id);
 		}
 		
+		
+		
+		//Hateoas
 		
 		return user;
 	}
