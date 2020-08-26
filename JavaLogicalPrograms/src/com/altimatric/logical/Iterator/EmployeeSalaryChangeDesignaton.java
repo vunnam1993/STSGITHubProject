@@ -20,10 +20,9 @@ public class EmployeeSalaryChangeDesignaton {
 		int employee=(int) empList.stream().filter(sal->sal.getSalary()>=50000).count();
 		System.out.println(employee);
 		/*
-		 * for(Employee employee:empList) { if(employee.getSalary()>=50000) {
-		 * 
+		 * for(Employee employee:empList) { 
+		 * if(employee.getSalary()>=50000) {
 		 * employee.setDesignation("Associate");
-		 * 
 		 * System.out.println(employee.getSalary()+"......."+employee.getDesignation());
 		 * }
 		 * 
@@ -31,8 +30,11 @@ public class EmployeeSalaryChangeDesignaton {
 		 */
 
 		/*
-		 * for (int i = 0; i < empList.size(); i++) { if (empList.get(i).getSalary() >=
-		 * 50000) { empList.get(i).setDesignation("Associate"); } }
+		 * for (int i = 0; i < empList.size(); i++) { 
+		 * if (empList.get(i).getSalary() >= 50000) { 
+		 * empList.get(i).setDesignation("Associate");
+		 * } 
+		 * }
 		 */
 		
 		
