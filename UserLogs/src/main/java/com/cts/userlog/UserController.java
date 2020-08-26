@@ -3,9 +3,7 @@ package com.cts.userlog;
 
 import java.net.URI;
 import java.util.List;
-
 import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -24,6 +22,9 @@ public class UserController {
 	@Autowired
 	private UserServices userServices;
 	
+	
+	//HATEOAS Hypermedia As The Engine Of Application State
+	
 	@RequestMapping(path="/allUsers",method = RequestMethod.GET) 
 	public List<User> getAllUsers(){
 		return userServices.getUsers();
@@ -34,6 +35,8 @@ public class UserController {
 		if(user==null) {
 			throw new UserNotFoundException("id-"+id);
 		}
+		
+		
 		return user;
 	}
 	@RequestMapping(path="/users",method = RequestMethod.POST)
