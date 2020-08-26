@@ -4,6 +4,8 @@ package com.cts.userlog;
 import java.net.URI;
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -35,13 +37,23 @@ public class UserController {
 		return user;
 	}
 	@RequestMapping(path="/users",method = RequestMethod.POST)
-	public ResponseEntity<Object> saveUser(@RequestBody User user) {
+	public ResponseEntity<Object> saveUser(@Valid @RequestBody User user) {
 		User saveUser=userServices.saveUser(user); 
 		URI location=ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(saveUser.getId()).toUri();
 		return ResponseEntity.created(location).build();
 	}
 	
-	
+	@RequestMapping(path = "/deleteUser/{id}",method = RequestMethod.DELETE)
+	public void deleteUser(@PathVariable int id) {
+		System.out.println("id......"+id);
+		User user=userServices.deleteById(id);
+		
+		if(user==null) {
+			throw new UserNotFoundException("idd-"+id); 
+		}
+		
+		
+	}
 	
 	
 	
