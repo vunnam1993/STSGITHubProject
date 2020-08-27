@@ -2,9 +2,11 @@ package com.cts.userlog;
 
 
 import java.net.URI;
+
 import java.util.List;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -35,11 +37,10 @@ public class UserController {
 		User user= userServices.findOne(id);
 		if(user==null) {
 			throw new UserNotFoundException("id-"+id);
+			
 		}
 		
 		
-		
-		//Hateoas
 		
 		return user;
 	}
